@@ -1,0 +1,25 @@
+
+/*Java code*/
+
+
+class Solution {
+public:
+    TreeNode* solve(TreeNode* node, int target)
+    {
+    if(node==nullptr)
+    return nullptr;
+
+    node->left=solve(node->left,target);
+    node->right=solve(node->right,target);
+
+    if(node-> left==nullptr && node->right==nullptr && node->val==target)
+    return nullptr;
+
+    return node;
+    }
+    TreeNode* removeLeafNodes(TreeNode* root, int target) {
+        root=solve(root,target);
+        return root;
+    }
+
+};
